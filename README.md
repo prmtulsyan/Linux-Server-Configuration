@@ -394,11 +394,8 @@ run `sudo -l` and enter the password again. The output should be like this:
 - Go to [Google Cloud Plateform](https://console.cloud.google.com/).
 - Click `APIs & services` on left menu.
 - Click `Credentials`.
-- Create an OAuth Client ID (under the Credentials tab), and add http://13.126.103.33/  and
-http://ec2-13-126-103-33.ap-south-1.compute.amazonaws.com  as authorized JavaScript
+- Create an OAuth Client ID (under the Credentials tab), and add http://13.229.107.7/ as authorized JavaScript
 origins.
-- Add http://ec2-13-126-103-33.ap-south-1.compute.amazonaws.com/oauth2callback
-as authorized redirect URI.
 - Download the corresponding JSON file, open it et copy the contents.
 - Open `/var/www/catalog/Item-catlog/client_secrets.json` and paste the previous contents into the this file.
 - Replace the client ID  of the `templates/login.html` file in the project directory.
@@ -455,7 +452,7 @@ following lines to configure the virtual host:
 
   ```
   <VirtualHost *:80>
-	  ServerName 13.126.103.33
+	  ServerName http://13.229.107.7.xip.io
     ServerAlias  http://ec2-13-126-103-33.ap-south-1.compute.amazonaws.com
 	  WSGIScriptAlias / /var/www/catalog/catalog.wsgi
 	  <Directory /var/www/catalog/Item-catlog/>
@@ -530,8 +527,7 @@ The following prompt will be returned:
 
 - Change the ownership of the project directories: `sudo chown -R www-data:www-data catalog/`.
 - Restart Apache again: `sudo service apache2 restart`.
-- Open your browser to http://13.126.103.33 or http://ec2-13-126-103-33.ap-south-1.compute.amazonaws.com.
-
+- Open your browser to http://13.229.107.7.xip.io 
 
 
 
